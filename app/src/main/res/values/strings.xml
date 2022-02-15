@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Canvas Demo</string>
+    <string name="basic_shapes">Formas Básicas</string>
+    <string name="ball_clicker">Ball Clicker</string>
+    <string name="draw_text">Pintar Texto</string>
+    <string name="weight_picker">Selector de Peso</string>
+    <string name="clock">Reloj</string>
+    <string name="select_weight">Indica tu peso</string>
+    <string name="units">KG</string>
+    <string name="path_demo">Demo Path</string>
+    <string name="draw_cubic">Dibujar Path Cúbico</string>
+    <string name="draw_quadratic">Dibujar Path Cuadrático</string>
+    <string name="path_basics">Paths Básicos</string>
+    <string name="path_operations">Operaciones con  paths</string>
+</resources>
