@@ -10,7 +10,6 @@ class BaseViewModel: ViewModel() {
         get() = _title
 
     fun changeTitle(title: String) {
-        println(title)
         _title.value = title
     }
 }

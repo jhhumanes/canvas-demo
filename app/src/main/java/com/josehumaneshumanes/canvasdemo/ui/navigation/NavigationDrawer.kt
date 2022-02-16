@@ -4,6 +4,8 @@ import androidx.annotation.StringRes
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material.Icon
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
@@ -27,6 +29,15 @@ private sealed class DrawerItem(
     object PathDemo : DrawerItem(R.string.path_demo, NavItem.PathDemo)
     object PathBasics : DrawerItem(R.string.path_basics, NavItem.PathBasics)
     object PathOperations : DrawerItem(R.string.path_operations, NavItem.PathOperations)
+    object AnimatingPathLine : DrawerItem(R.string.animating_path_line, NavItem.AnimatingPathLine)
+    object AnimatingArrow : DrawerItem(R.string.animating_arrow, NavItem.AnimatingArrow)
+    object TransformingClipping : DrawerItem(R.string.animating_arrow, NavItem.TransformingClipping)
+    object PathEffects : DrawerItem(R.string.path_effects, NavItem.PathEffects)
+    object TextPath : DrawerItem(R.string.path_effects, NavItem.TextPath)
+    object GenderPicker : DrawerItem(R.string.gender_picker, NavItem.GenderPicker)
+    object Tictactoe : DrawerItem(R.string.tictactoe, NavItem.Tictactoe)
+    object Images : DrawerItem(R.string.images, NavItem.Images)
+    object ImageReveal : DrawerItem(R.string.image_reveal, NavItem.ImageReveal)
 }
 
 private val drawerItems = listOf(
@@ -38,6 +49,15 @@ private val drawerItems = listOf(
     DrawerItem.PathDemo,
     DrawerItem.PathBasics,
     DrawerItem.PathOperations,
+    DrawerItem.AnimatingPathLine,
+    DrawerItem.AnimatingArrow,
+    DrawerItem.TransformingClipping,
+    DrawerItem.PathEffects,
+    DrawerItem.TextPath,
+    DrawerItem.GenderPicker,
+    DrawerItem.Tictactoe,
+    DrawerItem.Images,
+    DrawerItem.ImageReveal,
 )
 
 @Composable
@@ -51,31 +71,35 @@ fun NavigationDrawer(
             .background(MaterialTheme.colors.secondaryVariant)
             .padding(horizontal = 8.dp, vertical = 8.dp)
     ) {
+
         Text(
             text = stringResource(id = R.string.app_name),
             style = MaterialTheme.typography.h4
         )
 
-        drawerItems.forEach { item ->
-            Spacer(modifier = Modifier.height(24.dp))
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .clickable {
-                        onNavItemClicked(item.navItem)
-                    },
-                horizontalArrangement = Arrangement.SpaceBetween
-            ) {
-                Text(
-                    text = stringResource(id = item.titleResId),
-                    style = MaterialTheme.typography.h6
-                )
-                Icon(
-                    imageVector = Icons.Default.ArrowForward,
-                    contentDescription = null,
-                    modifier = Modifier.size(35.dp),
-                    tint = MaterialTheme.colors.onSecondary
-                )
+        LazyColumn() {
+            items(drawerItems) {
+                    item ->
+                Spacer(modifier = Modifier.height(24.dp))
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .clickable {
+                            onNavItemClicked(item.navItem)
+                        },
+                    horizontalArrangement = Arrangement.SpaceBetween
+                ) {
+                    Text(
+                        text = stringResource(id = item.titleResId),
+                        style = MaterialTheme.typography.body1
+                    )
+                    Icon(
+                        imageVector = Icons.Default.ArrowForward,
+                        contentDescription = null,
+                        modifier = Modifier.size(25.dp),
+                        tint = MaterialTheme.colors.onSecondary
+                    )
+                }
             }
         }
     }

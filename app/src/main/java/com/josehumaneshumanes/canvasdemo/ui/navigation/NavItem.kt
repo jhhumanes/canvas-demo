@@ -21,7 +21,16 @@ sealed class NavItem(
     object Clock : NavItem(baseRoute = "clock")
     object PathDemo : NavItem(baseRoute = "path-demo")
     object PathBasics : NavItem(baseRoute = "path-basics")
-    object PathOperations : NavItem(baseRoute = "path-opetations")
+    object PathOperations : NavItem(baseRoute = "path-operations")
+    object AnimatingPathLine : NavItem(baseRoute = "animating-path-line")
+    object AnimatingArrow : NavItem(baseRoute = "animating-arrow")
+    object TransformingClipping : NavItem(baseRoute = "transforming-clipping")
+    object PathEffects : NavItem(baseRoute = "path-effects")
+    object TextPath : NavItem(baseRoute = "text-path")
+    object GenderPicker : NavItem(baseRoute = "gender-picker")
+    object Tictactoe : NavItem(baseRoute = "tic-tac-toe")
+    object Images : NavItem(baseRoute = "images")
+    object ImageReveal : NavItem(baseRoute = "image-reveal")
 
     val route = run {
         val argKeys = navArgs.map { "{${it.key}}" }
